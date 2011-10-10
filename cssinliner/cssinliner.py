@@ -90,7 +90,7 @@ class Premailer(object):
         self.exclude_pseudoclasses = exclude_pseudoclasses
         # whether to delete the <style> tag once it's been processed
         self.keep_style_tags = keep_style_tags
-				self.remove_classes = remove_classes
+        self.remove_classes = remove_classes
         # whether to process or ignore selectors like '* { foo:bar; }'
         self.include_star_selectors = include_star_selectors
         if isinstance(external_styles, basestring):
