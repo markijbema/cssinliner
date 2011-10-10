@@ -82,6 +82,7 @@ class Premailer(object):
                  exclude_pseudoclasses=False,
                  keep_style_tags=False,
                  include_star_selectors=False,
+                 remove_classes=False,
                  external_styles=None):
         self.html = html
         self.base_url = base_url
@@ -89,6 +90,7 @@ class Premailer(object):
         self.exclude_pseudoclasses = exclude_pseudoclasses
         # whether to delete the <style> tag once it's been processed
         self.keep_style_tags = keep_style_tags
+				self.remove_classes = remove_classes
         # whether to process or ignore selectors like '* { foo:bar; }'
         self.include_star_selectors = include_star_selectors
         if isinstance(external_styles, basestring):
@@ -181,10 +183,11 @@ class Premailer(object):
                 item.attrib['style'] = new_style
                 self._style_to_basic_html_attributes(item, new_style)
                 
-        # now we can delete all 'class' attributes
-        for item in page.xpath('//@class'):
-            parent = item.getparent()
-            del parent.attrib['class']
+        if self.remove_classes:
+            # now we can delete all 'class' attributes
+            for item in page.xpath('//@class'):
+                parent = item.getparent()
+                del parent.attrib['class']
             
                     
         ##
