@@ -1,1 +1,1 @@
-from premailer import Premailer, transform, __version__
+from cssinliner import Premailer, transform, __version__
