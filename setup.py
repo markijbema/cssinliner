@@ -1,7 +1,7 @@
 from setuptools import setup, find_packages
 import sys, os
 
-version = '1.9'
+version = '1.10'
 
 README = os.path.join(os.path.dirname(__file__), 'README.md')
 long_description = open(README).read().strip() + "\n\n"
@@ -12,15 +12,15 @@ def md2stx(s):
 long_description = md2stx(long_description)
 
 
-setup(name='premailer',
+setup(name='cssinliner',
       version=version,
       description="Turns CSS blocks into style attributes",
       long_description=long_description,
       keywords='html lxml email mail style',
       author='Peter Bengtsson',
       author_email='peter@fry-it.com',
-      url='http://www.peterbe.com/plog/premailer.py',
-      download_url='http://pypi.python.org/pypi/premailer/',
+      #url='http://www.peterbe.com/plog/premailer.py',
+      #download_url='http://pypi.python.org/pypi/premailer/',
       license='Python',
       classifiers = [
         "Development Status :: 5 - Production/Stable",
